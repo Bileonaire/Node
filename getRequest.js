@@ -22,10 +22,10 @@ const request = https.get(`https://teamtreehouse.com/${username}.json`, response
 
     // console.log(response);
     response.on('end', () => {
-        console.log(body);
-        console.log(typeof body);
+        // Parse the data
+        const profile = JSON.parse(body);
+        console.dir(profile);
+        printMessage(username, profile.badges.length);
     })
-    // console.dir(response);
-    // Parse the data
     // Print the data
 });
